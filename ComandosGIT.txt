@@ -1,7 +1,7 @@
 ﻿CLONAR EL REPOSITORIO
 ----------------------------------------------
 
-git clone https://github.com/gcoronelc/UNI-FIIS-JAVA-WEB-002.git
+git clone https://github.com/gcoronelc/UNI-FIIS-SPRING-BOOT-01.git
 
 
 
