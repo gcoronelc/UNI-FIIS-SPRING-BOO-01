@@ -1,11 +1,11 @@
-![DESARROLLO WEB CON JAVA](https://raw.githubusercontent.com/gcoronelc/UNI-FIIS-JAVA-WEB-002/main/Imagenes/portada.png)
+![DESARROLLO WEB CON SPRING BOOT](https://raw.githubusercontent.com/gcoronelc/UNI-FIIS-SPRING-BOOT-01/main/Imagenes/portada.png)
 
-![CALENDARIO](https://raw.githubusercontent.com/gcoronelc/UNI-FIIS-JAVA-WEB-002/main/Imagenes/Calendario.png)
+![CALENDARIO](https://raw.githubusercontent.com/gcoronelc/UNI-FIIS-SPRING-BOOT-01/main/Imagenes/Calendario.png)
 
 # DATOS GENERALES
 
 - Lugar: UNI - FIIS
-- Horario: Martes y Jueves de 08-12 Horas
+- Horario: Martes de 13 a 17 y Viernes de 08-12 Horas
 - Inicio: 11-OCT-2022
 - Duración: 48 Horas
 - Dirección: https://goo.gl/maps/ZY5zZ1LPUp7aK6g98
