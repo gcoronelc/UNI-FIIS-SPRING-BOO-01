@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${titulo}">Titulo</title>
+</head>
+<body>
+	<h1 th:text="${titulo}">Titulo</h1>
+	<p th:text="${mensaje}">Hola todos.</p>
+	<div th:object="${book}">
+		<p>
+			Titulo: <span th:text="*{titulo}"></span>
+		</p>
+		<p>
+			Autor: <span th:text="*{autor}"></span>
+		</p>
+		<p>
+			Precio: <span th:text="*{Precio}"></span>
+		</p>
+	</div>
+	<table border="1">
+	<thead>
+		<th>TITULO</th>
+		<th>AUTOR</th>
+		<th>PRECIO</th>
+	</thead>
+	<tbody>
+		<tr th:each="book : ${lista}">
+			<td th:text="${book.titulo}"></td>
+			<td th:text="${book.autor}"></td>
+			<td th:text="${book.precio}"></td>
+		</tr>
+	</tbody>
+	</table>
+</body>
+</html>
