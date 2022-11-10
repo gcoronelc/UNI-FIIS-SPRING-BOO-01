@@ -17,14 +17,15 @@ public class DemoController {
 	public String prueba01() {
 		
 		Cliente cliente = new Cliente();
-		cliente.setCodigo("99999");
-		cliente.setPaterno("Torres");
+		cliente.setCodigo("99998");
+		cliente.setPaterno("Coronel");
 		cliente.setMaterno("Castro");
 		cliente.setNombre("Juan");
 		cliente.setDni("12345678");
 		cliente.setDireccion("Lima");
 		cliente.setCiudad("Lima");
 		cliente.setEmail("juan@gmail.com");
+		cliente.setNuevo(true);
 		cliente = clienteService.insertar(cliente);
 		System.out.println("Código: " + cliente.getCodigo());
 		

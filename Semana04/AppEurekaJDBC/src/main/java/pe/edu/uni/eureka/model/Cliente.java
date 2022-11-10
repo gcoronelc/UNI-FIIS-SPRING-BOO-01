@@ -3,11 +3,13 @@ package pe.edu.uni.eureka.model;
 import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("CLIENTE")
-public class Cliente implements Serializable {
+public class Cliente implements Serializable, Persistable<String>{
 
 	private static final long serialVersionUID = 1L;
 
@@ -38,6 +40,9 @@ public class Cliente implements Serializable {
 
 	@Column("VCH_CLIEEMAIL")
 	private String email;
+	
+	@Transient
+	private boolean nuevo;
 
 	public Cliente() {
 	}
@@ -113,9 +118,19 @@ public class Cliente implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public void setNuevo(boolean nuevo) {
+		this.nuevo = nuevo;
+	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	@Override
+	public String getId() {
+		return codigo;
+	}
+
+	@Override
+	public boolean isNew() {
+		return nuevo;
 	}
 
 }
