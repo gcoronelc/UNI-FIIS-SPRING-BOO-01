@@ -1,0 +1,1 @@
+com.microsoft.sqlserver.jdbc.SQLServerException: El controlador no pudo establecer una conexión segura con SQL Server con el cifrado de Capa de sockets seguros (SSL). Error: "The server selected protocol version TLS10 is not accepted by client preferences [TLS13, TLS12]". ClientConnectionId:11508881-fcff-461a-85d6-8c347d0a6d46
