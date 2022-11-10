@@ -2,6 +2,7 @@ package pe.edu.uni.eureka.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import pe.edu.uni.eureka.model.Cliente;
@@ -34,21 +35,25 @@ public class DemoController {
 	}
 	
 	@GetMapping("/prueba02")
-	public String prueba02() {
-		ClientePersistable cliente = new ClientePersistable();
-		cliente.setCodigo("99001");
-		cliente.setPaterno("Torres");
-		cliente.setMaterno("Castro");
-		cliente.setNombre("Juan");
-		cliente.setDni("12345678");
-		cliente.setTelefono("984567345");
-		cliente.setDireccion("Lima");
-		cliente.setCiudad("Lima");
-		cliente.setEmail("juan@gmail.com");
-		cliente.setNuevo(true);
-		cliente = clienteService.insertar2(cliente);
-		System.out.println("Código: " + cliente.getCodigo());
-		
+	public String prueba02(Model model) {
+		try {
+			ClientePersistable cliente = new ClientePersistable();
+			cliente.setCodigo(null);
+			cliente.setPaterno(null);
+			cliente.setMaterno("Castro");
+			cliente.setNombre("Juan");
+			cliente.setDni("12345678");
+			cliente.setTelefono("984567345");
+			cliente.setDireccion("Lima");
+			cliente.setCiudad("Lima");
+			cliente.setEmail("juan@gmail.com");
+			cliente.setNuevo(true);
+			cliente = clienteService.merge(cliente);
+			System.out.println("Código: " + cliente.getCodigo());
+			model.addAttribute("mensaje", "Todo ok");
+		} catch (Exception e) {
+			model.addAttribute("mensaje", e.getMessage());
+		}
 		return "home";
 	}
 }
