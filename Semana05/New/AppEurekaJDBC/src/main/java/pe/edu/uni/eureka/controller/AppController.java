@@ -6,15 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import pe.edu.uni.eureka.model.Cliente;
-import pe.edu.uni.eureka.model.ClientePersistable;
-import pe.edu.uni.eureka.service.ClienteService;
+import pe.edu.uni.eureka.model.Empleado;
+import pe.edu.uni.eureka.service.LogonService;
 
 @Controller
 public class AppController {
 	
 	@Autowired
-	private ClienteService clienteService;
+	private LogonService logonService;
 	
 	@GetMapping({"/","/index","/home"})
 	public String home() {
@@ -23,8 +22,16 @@ public class AppController {
 	
 	@PostMapping("/logon")
 	public String logon(String username, String password, Model model) {
-		model.addAttribute("mensaje", "Pronto");
-		return "main";
+		Empleado bean = logonService.validar(username, password);
+		String destino;
+		if(bean==null) {
+			destino = "index";
+			model.addAttribute("mensaje", "Datos incorrectos.");
+		} else {
+			destino = "main";
+			model.addAttribute("bean", bean);
+		}
+		return destino;
 	}
 	
 	@GetMapping("/main")
@@ -32,6 +39,15 @@ public class AppController {
 		return "main";
 	}
 	
-	
+	@GetMapping("/pruebita")
+	public String pruebita() {
+		Empleado bean = logonService.validar("cromero", "chichos");
+		if(bean!=null) {
+			System.out.println("Hola: " + bean.getNombre());
+		} else {
+			System.out.println("No existe");
+		}
+		return "main";
+	}
 
 }

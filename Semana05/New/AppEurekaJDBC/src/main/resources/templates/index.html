@@ -18,7 +18,7 @@ body {
 #login .container #login-row #login-column #login-box {
 	margin-top: 120px;
 	max-width: 600px;
-	height: 320px;
+	height: 360px;
 	border: 1px solid #9C9C9C;
 	background-color: #EAEAEA;
 }
@@ -55,8 +55,12 @@ body {
 									class="form-control">
 							</div>
 							<div class="form-group">
-								<input type="submit" name="btnSubmit" id="btnSubmit" class="btn btn-info btn-md"
-									value="Ingresar al sistema">
+								<input type="submit" name="btnSubmit" id="btnSubmit"
+									class="btn btn-info btn-md" value="Ingresar al sistema">
+							</div>
+							<div class="alert alert-danger" role="alert"
+								th:if="${mensaje!=null}">
+								<strong>Error!</strong> <span th:text="${mensaje}"></span>
 							</div>
 						</form>
 					</div>
