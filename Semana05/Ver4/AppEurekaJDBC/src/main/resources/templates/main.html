@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/plantilla::head">
+</head>
+
+<body>
+
+	<header th:replace="plantilla/plantilla::header"> </header>
+
+	<div class="container">
+		<h1>USUARIO</h1>
+		<p th:text="${'Código: ' + usuario.codigo}"></p>
+		<p th:text="${'Nombre: ' + usuario.nombre}"></p>
+		<p th:text="${'Paterno: ' + usuario.paterno}"></p>
+		<p th:text="${'Materno: ' + usuario.materno}"></p>
+	</div>
+
+	<footer th:replace="plantilla/plantilla::footer"> </footer>
+	
+</body>
+
+</html>
