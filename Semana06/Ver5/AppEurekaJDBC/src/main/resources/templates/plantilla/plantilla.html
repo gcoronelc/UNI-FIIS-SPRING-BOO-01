@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="UTF-8">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<title>EUREKA BANK - Tu banco amigo</title>
+</head>
+
+<body>
+
+	<!-- Barra de navegación -->
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+			<div class="container">
+				<a class="navbar-brand" href="#"> <strong>EUREKABANK</strong>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- ENLACES DEL MENU -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+					
+						<!-- Página de inicio -->
+						<li class="nav-item"><a class="nav-link" th:href="@{/main}">Inicio</a></li>
+
+						<!-- Procesos -->
+						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Procesos </a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Registrar deposito</a>
+								<a class="dropdown-item" href="#">Registrar retiro</a>
+								<a class="dropdown-item" href="#">Registrar transferencia</a>
+							</div>
+						</li>
+						
+						<!-- Tablas -->
+						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Procesos </a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Registrar deposito</a>
+								<a class="dropdown-item" href="#">Registrar retiro</a>
+								<a class="dropdown-item" href="#">Registrar transferencia</a>
+							</div>
+						</li>
+
+						<!-- Consultas -->
+						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Consultas </a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Resumen
+									de ingresos y salidas</a> 
+								<a class="dropdown-item" href="#">Another
+									action</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</li>
+
+						<!-- Opción salir -->
+						<li class="nav-item"><a class="nav-link" th:href="@{/salir}">Salir</a></li>
+
+					</ul>
+				</div>
+				<form class="form-inline my-2 my-lg-0" method="get" action="salir">
+					<label class="mr-sm-2" th:text="${'Usuario: ' + usuario.usuario} + ' '"></label>
+					<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Cerrar sesion</button>
+				</form>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Contenido -->
+	<div class="container"></div>
+
+	<!-- Pie de pagina -->
+	<footer th:fragment="footer" class="bg-info text-center text-white p-1">
+		<div class="container">
+			<div class="row justify-content-center align-items-center minh-100">
+				<div class="col-lg-12">
+					Copyright Desarrolla Software &copy;2020
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+			integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+			crossorigin="anonymous"></script>
+	</footer>
+</body>
+
+</html>
