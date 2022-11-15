@@ -1,11 +1,19 @@
 package pe.edu.uni.eureka.model;
 
+import java.io.Serializable;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("SUCURSAL")
-public class Sucursal {
+public class Sucursal implements Serializable, Persistable<String> {
 
+	private static final long serialVersionUID = 1L;
+
+	@Id
 	@Column("CHR_SUCUCODIGO")
 	private String codigo;
 	@Column("VCH_SUCUNOMBRE")
@@ -16,6 +24,9 @@ public class Sucursal {
 	private String direccion;
 	@Column("INT_SUCUCONTCUENTA")
 	private int contador;
+
+	@Transient
+	private boolean nuevo;
 
 	public Sucursal() {
 	}
@@ -58,6 +69,20 @@ public class Sucursal {
 
 	public void setContador(int contador) {
 		this.contador = contador;
+	}
+
+	public void setNuevo(boolean nuevo) {
+		this.nuevo = nuevo;
+	}
+
+	@Override
+	public String getId() {
+		return codigo;
+	}
+
+	@Override
+	public boolean isNew() {
+		return nuevo;
 	}
 
 }

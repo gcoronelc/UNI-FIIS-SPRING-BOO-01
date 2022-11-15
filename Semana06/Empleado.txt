@@ -1,0 +1,35 @@
+
+
+
+@Column("CHR_EMPLCODIGO")
+private String codigo;
+
+@Column("VCH_EMPLPATERNO")
+private String paterno;
+
+@Column("VCH_EMPLMATERNO")
+private String materno;
+
+@Column("VCH_EMPLNOMBRE")
+private String nombre;
+
+@Column("VCH_EMPLCIUDAD")
+private String ciudad;
+
+@Column("VCH_EMPLDIRECCION")
+private String direccion;
+
+@Column("VCH_EMPLUSUARIO")
+private String usuario;
+
+@Column("VCH_EMPLCLAVE")
+private String clave;
+
+
+
+
+
+
+
+
+

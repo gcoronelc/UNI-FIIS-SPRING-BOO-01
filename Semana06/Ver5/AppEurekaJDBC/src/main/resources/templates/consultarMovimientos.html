@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/plantilla::head">
+</head>
+
+<body>
+
+	<header th:replace="plantilla/plantilla::header"> </header>
+
+	<div class="container">
+		<h1>CONSULTAR MOVIMIENTOS</h1>
+		<div class="card" th:if="${accion==1}">
+			<div class="card-header">DATOS DE LA NUEVA CUENTA</div>
+			<div class="card-body">
+				<form method="post" th:action="@{/consulta/movimientos}">
+					<div class="form-group row">
+						<label for="desde" class="col-sm-2 col-form-label">Desde</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="desde" name="desde"
+								placeholder="Desde">
+						</div>
+						<label for="hasta" class="col-sm-2 col-form-label">Hasta</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="hasta" name="hasta"
+								placeholder="Hasta">
+						</div>
+						<div class="col-sm-2">
+							<button type="submit" class="btn btn-primary">Consultar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="card" th:if="${accion==2}">
+			<div class="card-header">RESULTADO DE LA CONSULTA</div>
+			<div class="card-body">
+				<table class="table">
+					<thead class="thead-light">
+						<tr>
+							<th>FECHA</th>
+							<th>CUENTA</th>
+							<th>TIPO</th>
+							<th>ACCION</th>
+							<th>IMPORTE</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="r : ${lista}">
+							<th th:text="${r.fecha}"></th>
+							<td th:text="${r.cuenta}"></td>
+							<td th:text="${r.tipo}"></td>
+							<td th:text="${r.accion}"></td>
+							<td th:text="${r.importe}"></td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+
+		<footer th:replace="plantilla/plantilla::footer"> </footer>
+</body>
+
+</html>

@@ -34,8 +34,9 @@
 								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Procesos </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">Registrar deposito</a>
-								<a class="dropdown-item" href="#">Registrar retiro</a>
+								<a class="dropdown-item" th:href="@{/cuenta/crear}">Crear cuenta</a>
+								<a class="dropdown-item" th:href="@{/cuenta/depositar}">Registrar deposito</a>
+								<a class="dropdown-item" th:href="@{/cuenta/retiro}">Registrar retiro</a>
 								<a class="dropdown-item" href="#">Registrar transferencia</a>
 							</div>
 						</li>
@@ -43,11 +44,11 @@
 						<!-- Tablas -->
 						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Procesos </a>
+								Tablas </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">Registrar deposito</a>
-								<a class="dropdown-item" href="#">Registrar retiro</a>
-								<a class="dropdown-item" href="#">Registrar transferencia</a>
+								<a class="dropdown-item" href="#">Clientes</a>
+								<a class="dropdown-item" href="#">Empleados</a>
+								<a class="dropdown-item" href="#">Sucursales</a>
 							</div>
 						</li>
 
@@ -58,8 +59,7 @@
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Resumen
 									de ingresos y salidas</a> 
-								<a class="dropdown-item" href="#">Another
-									action</a>
+								<a class="dropdown-item" th:href="@{/consulta/movimientos}">Movimientos</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">Something else here</a>
 							</div>
@@ -71,7 +71,7 @@
 					</ul>
 				</div>
 				<form class="form-inline my-2 my-lg-0" method="get" action="salir">
-					<label class="mr-sm-2" th:text="${'Usuario: ' + usuario.usuario} + ' '"></label>
+					<label th:if="${usuario!=null}" class="mr-sm-2" th:text="${'Usuario: ' + usuario.usuario + ' '}"></label>
 					<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Cerrar sesion</button>
 				</form>
 			</div>

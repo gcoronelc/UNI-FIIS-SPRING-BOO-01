@@ -1,0 +1,32 @@
+
+
+@Column("CHR_CUENCODIGO")
+private String cuenta
+@Column("CHR_MONECODIGO")
+private String moneda
+@Column("CHR_SUCUCODIGO")
+private String sucursal
+@Column("CHR_EMPLCREACUENTA")
+private String empleado
+@Column("CHR_CLIECODIGO")
+private String cliente
+@Column("DEC_CUENSALDO")
+private double saldo
+@Column("DTT_CUENFECHACREACION")
+private Date fecha
+@Column("VCH_CUENESTADO")
+private String estado
+@Column("INT_CUENCONTMOV")
+private int contador
+@Column("CHR_CUENCLAVE")
+private String clave
+
+
+
+
+
+
+
+
+
+

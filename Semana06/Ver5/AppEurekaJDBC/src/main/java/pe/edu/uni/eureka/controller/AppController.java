@@ -1,5 +1,8 @@
 package pe.edu.uni.eureka.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import pe.edu.uni.eureka.model.Empleado;
+import pe.edu.uni.eureka.service.CuentaService;
 import pe.edu.uni.eureka.service.LogonService;
 
 @Controller
@@ -22,6 +26,9 @@ public class AppController {
 
 	@Autowired
 	private LogonService logonService;
+	
+	@Autowired
+	private CuentaService cuentaService;
 
 	@GetMapping({ "/", "/index", "/home" })
 	public String home() {
@@ -65,9 +72,17 @@ public class AppController {
 		} else {
 			System.out.println("No existe");
 		}
+		/*
 		String query = "select chr_sucucodigo from asignado a where a.chr_emplcodigo='0004' and dtt_asigfechabaja is null";
 		String sucursal = jdbcTemplate.queryForObject(query, String.class);
 		System.out.println("Sucursal: " + sucursal);
+		*/
+		// cuentaService.crearCuenta("00009", "01", 777, "56789", "0007");
+		List<Map<String,Object>> lista = cuentaService.consultarMovimientos("01/11/2022", "15/11/2022");
+		for(Map<String,Object> r: lista) {
+			System.out.println(r.get("importe").toString());
+		}
+		
 		return "main";
 	}
 

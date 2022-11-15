@@ -1,0 +1,18 @@
+
+
+@Column("CHR_SUCUCODIGO")
+private String codigo
+@Column("VCH_SUCUNOMBRE")
+private String nombre
+@Column("VCH_SUCUCIUDAD")
+private String ciudad
+@Column("VCH_SUCUDIRECCION")
+private String direccion
+@Column("INT_SUCUCONTCUENTA")
+private int contador
+
+
+
+
+
+

@@ -1,13 +1,20 @@
 package pe.edu.uni.eureka.model;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("CUENTA")
-public class Cuenta {
+public class Cuenta implements Serializable, Persistable<String> {
 
+	private static final long serialVersionUID = 1L;
+
+	@Id
 	@Column("CHR_CUENCODIGO")
 	private String cuenta;
 	@Column("CHR_MONECODIGO")
@@ -21,13 +28,16 @@ public class Cuenta {
 	@Column("DEC_CUENSALDO")
 	private double saldo;
 	@Column("DTT_CUENFECHACREACION")
-	private Date fecha;
+	private LocalDateTime fecha;
 	@Column("VCH_CUENESTADO")
 	private String estado;
 	@Column("INT_CUENCONTMOV")
 	private int contador;
 	@Column("CHR_CUENCLAVE")
 	private String clave;
+	
+	@Transient
+	private boolean nuevo;
 	
 	public Cuenta() {
 	}
@@ -80,11 +90,11 @@ public class Cuenta {
 		this.saldo = saldo;
 	}
 
-	public Date getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
-
-	public void setFecha(Date fecha) {
+	
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 
@@ -110,6 +120,20 @@ public class Cuenta {
 
 	public void setClave(String clave) {
 		this.clave = clave;
+	}
+
+	public void setNuevo(boolean nuevo) {
+		this.nuevo = nuevo;
+	}
+	
+	@Override
+	public String getId() {
+		return cuenta;
+	}
+
+	@Override
+	public boolean isNew() {
+		return nuevo;
 	}
 	
 	
