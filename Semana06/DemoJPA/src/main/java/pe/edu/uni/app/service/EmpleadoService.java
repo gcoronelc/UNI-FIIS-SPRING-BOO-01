@@ -13,4 +13,14 @@ public interface EmpleadoService {
 	Empleado grabar(Empleado empleado);
 
 	void eliminar(Long id);
+
+	List<Empleado> findByNombreLike(String nombre);
+
+	List<Empleado> findByNombreContaining(String nombre);
+
+	Empleado buscarPorEmail(String email);
+	
+	List<Empleado> buscarPorNombre(String nombre);
+	
+	List<Empleado> buscarEmpleados(String nombre, String apellido);
 }

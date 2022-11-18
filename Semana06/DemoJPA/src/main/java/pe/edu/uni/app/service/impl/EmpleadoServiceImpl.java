@@ -22,7 +22,8 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 
 	@Override
 	public Empleado buscarPorId(Long id) {
-		return empleadoRepository.findById(id).orElse(null);
+		// return empleadoRepository.findById(id).orElse(null);
+		return empleadoRepository.buscarPorId(id);
 	}
 
 	@Override
@@ -35,4 +36,26 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		empleadoRepository.deleteById(id);
 	}
 
+	@Override
+	public List<Empleado> findByNombreLike(String nombre) {
+		return empleadoRepository.findByNombreLike(nombre);
+	}
+
+	@Override
+	public List<Empleado> findByNombreContaining(String nombre) {
+		return empleadoRepository.findByNombreLike(nombre);
+	}
+
+	public Empleado buscarPorEmail(String email) {
+		return empleadoRepository.buscarPorEmail(email);
+	}
+	
+	public List<Empleado> buscarPorNombre(String nombre){
+		return empleadoRepository.buscarPorNombre(nombre);
+	}
+	
+	public List<Empleado> buscarEmpleados(String nombre, String apellido){
+		return empleadoRepository.buscarEmpleados(nombre, apellido);
+	}
+	
 }

@@ -5,10 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "EMPLEADO")
+@NamedQuery(name= "Empleado.buscarPorEmail",
+query = "SELECT e FROM Empleado e WHERE e.email = ?1")
 public class Empleado {
 
 	@Id
